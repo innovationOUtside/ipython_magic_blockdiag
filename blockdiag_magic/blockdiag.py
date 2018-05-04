@@ -49,9 +49,10 @@ except ImportError:
 
 from IPython.core.magic import Magics, magics_class, cell_magic, line_cell_magic
 from IPython.core.displaypub import publish_display_data
+from IPython.display import SVG, display
 
-_draw_mode = 'PNG'
-_publish_mode = 'PNG'
+_draw_mode = 'SVG'
+_publish_mode = 'SVG'
 
 _inkscape_available = False
 
