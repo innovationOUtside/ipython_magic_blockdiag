@@ -19,12 +19,16 @@ Sample usage (in IPython cell):
             B -> D;
     }
 
-Some browsers do not properly render SVG, therefore PNG image is used by default.
+TH: <s>Some browsers do not properly render SVG, therefore PNG image is used by default.</s> Render using SVG by default for higher quality images. Require an appropriate browser.
 
 Use magics %setdiagsvg and %setdiagpng to set SVG or PNG mode
 
 PNG rendered on windows with default libraries does not support antialiasing,
 resulting in a poor image quality
+
+
+TH: Inkscape not required if rendering direct in browser in Jupyter notebook. 
+TO DO: Simplify to remove inskcape; update display methods.
 
 If inkscape is installed on the machine and can be found in system path,
 the diagram is created as SVG and then rendered to PNG using inkscape.
@@ -32,7 +36,6 @@ the diagram is created as SVG and then rendered to PNG using inkscape.
 Inkscape for windows can be downloaded from (http://inkscape.org/)
 
 """
-from __future__ import print_function
 
 import imp
 import io
