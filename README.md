@@ -3,6 +3,8 @@ IPython Magic for Displaying blockdiag family of diagrams in Jupyter notebooks
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/innovationOUtside/ipython_magic_blockdiag/master)
 
+![](.images/myfile.svg)
+
 ```
 %load_ext blockdiag_magic
 ```
@@ -17,7 +19,7 @@ Higher quality SVG is available, but in this magic, this requires inkscape. (The
 ```
 
 ```
-#For inline png - lower quality image if inkscape not available
+#For inline png
 #%setdiagpng
 ```
 
