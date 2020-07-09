@@ -18,13 +18,12 @@ Higher quality SVG is available, but in this magic, this requires inkscape. (The
 
 ```
 #For inline png - lower quality image if inkscape not available
-#%setdiagpng magic
+#%setdiagpng
 ```
 
 ```python
 %%blockdiag
-    {
-       A -> B -> C;
-            B -> D;
-    }
+A -> B -> C;
+B -> D;
+
 ```
