@@ -36,6 +36,7 @@ import sys
 import pipes
 import subprocess
 import tempfile
+from shutil import copyfile
 
 try:
     import hashlib
@@ -43,6 +44,7 @@ except ImportError:
     import md5 as hashlib
 
 from IPython.core.magic import Magics, magics_class, cell_magic, line_cell_magic
+from IPython.core.magic_arguments import argument, magic_arguments, parse_argstring
 from IPython.core.displaypub import publish_display_data
 from IPython.display import SVG, display
 
@@ -80,7 +82,7 @@ class BlockdiagMagics(Magics):
                 print ('Exception %s' % str(e), file=sys.stderr)
         return False
 
-    def diag(self, line, cell, command):
+    def diag(self, line, cell, command, outfile):
         """Create sequence diagram using supplied diag methods."""
         code = cell + u'\n'
         try:
@@ -107,6 +109,8 @@ class BlockdiagMagics(Magics):
                 f.close()
 
         finally:
+            if outfile:
+                copyfile(draw_name, outfile)
             for file in os.listdir(tmpdir):
                 os.unlink(tmpdir + "/" + file)
             os.rmdir(tmpdir)
@@ -129,9 +133,12 @@ class BlockdiagMagics(Magics):
         self.diag(line, cell, actdiag.command)
 
     @cell_magic
+    @magic_arguments()
+    @argument('--outfile', '-o', default='', help='Output file.')
     def blockdiag(self, line, cell):
         import blockdiag.command
-        self.diag(line, f'blockdiag {{ {cell} }}', blockdiag.command)
+        args = parse_argstring(self.blockdiag, line)
+        self.diag(line, f'blockdiag {{ {cell} }}', blockdiag.command, args.outfile)
 
     @cell_magic
     def nwdiag(self, line, cell):
