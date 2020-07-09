@@ -27,3 +27,19 @@ A -> B -> C;
 B -> D;
 
 ```
+
+Save file:
+
+```python
+%%blockdiag -o myfile.svg
+
+  top_page -> config -> config_edit -> config_confirm -> top_page;
+
+```
+Then render:
+
+```python
+
+from IPython.display import SVG
+SVG('myfile.svg')
+```
