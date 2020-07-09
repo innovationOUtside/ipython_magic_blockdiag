@@ -1,6 +1,8 @@
 # ipython_magic_blockdiag
 IPython Magic for Displaying blockdiag family of diagrams in Jupyter notebooks
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/innovationOUtside/ipython_magic_blockdiag/master)
+
 ```
 %load_ext blockdiag_magic
 ```
