@@ -132,6 +132,7 @@ class BlockdiagMagics(Magics):
     @argument('--outfile', '-o', default='', help='Output file.')
     def actdiag(self, line, cell):
         import actdiag.command
+        args = parse_argstring(self.actdiag, line)
         self.diag(line, f'actdiag {{ {cell} }}', actdiag.command, args.outfile)
 
     @cell_magic
@@ -147,6 +148,7 @@ class BlockdiagMagics(Magics):
     @argument('--outfile', '-o', default='', help='Output file.')
     def nwdiag(self, line, cell):
         import nwdiag.command
+        args = parse_argstring(self.nwdiag, line)
         self.diag(line, f'nwdiag {{ {cell} }}', nwdiag.command)
 
     @cell_magic
@@ -154,6 +156,7 @@ class BlockdiagMagics(Magics):
     @argument('--outfile', '-o', default='', help='Output file.')
     def seqdiag(self, line, cell):
         import seqdiag.command
+        args = parse_argstring(self.seqdiag, line)
         self.diag(line, f'seqdiag {{ {cell} }}', seqdiag.command,  args.outfile)
 
     @cell_magic
