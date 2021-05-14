@@ -133,7 +133,7 @@ class BlockdiagMagics(Magics):
     def actdiag(self, line, cell):
         import actdiag.command
         args = parse_argstring(self.actdiag, line)
-        self.diag(line, f'actdiag {{ {cell} }}', actdiag.command, args.outfile)
+        self.diag(line, f'actdiag {cell}', actdiag.command, args.outfile)
 
     @cell_magic
     @magic_arguments()
