@@ -149,7 +149,7 @@ class BlockdiagMagics(Magics):
     def nwdiag(self, line, cell):
         import nwdiag.command
         args = parse_argstring(self.nwdiag, line)
-        self.diag(line, f'nwdiag {{ {cell} }}', nwdiag.command)
+        self.diag(line, f'nwdiag {cell}', nwdiag.command,  args.outfile)
 
     @cell_magic
     @magic_arguments()
@@ -157,7 +157,7 @@ class BlockdiagMagics(Magics):
     def seqdiag(self, line, cell):
         import seqdiag.command
         args = parse_argstring(self.seqdiag, line)
-        self.diag(line, f'seqdiag {{ {cell} }}', seqdiag.command,  args.outfile)
+        self.diag(line, f'seqdiag {cell}', seqdiag.command,  args.outfile)
 
     @cell_magic
     @magic_arguments()
