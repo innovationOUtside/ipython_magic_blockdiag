@@ -11,6 +11,6 @@ setup(name='blockdiagMagic',
      long_description_content_type="text/markdown",
      packages=['blockdiag_magic'],
      install_requires=['blockdiag', 'seqdiag', 'nwdiag', 'actdiag'],
-     version='0.0.2'
+     version='0.0.3'
       
      )
