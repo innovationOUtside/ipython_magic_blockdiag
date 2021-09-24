@@ -133,7 +133,7 @@ class BlockdiagMagics(Magics):
     def actdiag(self, line, cell):
         import actdiag.command
         args = parse_argstring(self.actdiag, line)
-        self.diag(line, f'actdiag {cell}', actdiag.command, args.outfile)
+        self.diag(line, f'actdiag {{ {cell} }}', actdiag.command, args.outfile)
 
     @cell_magic
     @magic_arguments()
@@ -149,7 +149,7 @@ class BlockdiagMagics(Magics):
     def nwdiag(self, line, cell):
         import nwdiag.command
         args = parse_argstring(self.nwdiag, line)
-        self.diag(line, f'nwdiag {cell}', nwdiag.command,  args.outfile)
+        self.diag(line, f'nwdiag {{ {cell} }}', nwdiag.command,  args.outfile)
 
     @cell_magic
     @magic_arguments()
@@ -157,7 +157,7 @@ class BlockdiagMagics(Magics):
     def seqdiag(self, line, cell):
         import seqdiag.command
         args = parse_argstring(self.seqdiag, line)
-        self.diag(line, f'seqdiag {cell}', seqdiag.command,  args.outfile)
+        self.diag(line, f'seqdiag {{ {cell} }}', seqdiag.command,  args.outfile)
 
     @cell_magic
     @magic_arguments()
@@ -165,7 +165,8 @@ class BlockdiagMagics(Magics):
     def packetdiag(self, line, cell):
         """Depends on nwdiag."""
         import packetdiag.command
-        self.diag(line, cell, packetdiag.command, args.outfile)
+        args = parse_argstring(self.seqdiag, line)
+        self.diag(line, f'packetdiag {{ {cell} }}', packetdiag.command, args.outfile)
 
     @cell_magic
     @magic_arguments()
@@ -173,7 +174,8 @@ class BlockdiagMagics(Magics):
     def rackdiag(self, line, cell):
         """Depends on nwdiag."""
         import rackdiag.command
-        self.diag(line, cell, rackdiag.command, args.outfile)
+        args = parse_argstring(self.rackdiag, line)
+        self.diag(line, f'rackdiag {{ {cell} }}', rackdiag.command, args.outfile)
         
     @line_cell_magic
     def setdiagsvg(self, line, cell=None):
