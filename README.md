@@ -1,7 +1,9 @@
 # ipython_magic_blockdiag
 IPython Magic for Displaying blockdiag family of diagrams in Jupyter notebooks
 
-Install as:
+Install from PyPy: `pip install blockdiagMagic`
+
+Install from this repo as:
 
 ```
 pip install --upgrade git+https://github.com/innovationOUtside/ipython_magic_blockdiag.git
